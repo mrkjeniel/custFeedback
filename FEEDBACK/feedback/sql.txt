@@ -1,0 +1,23 @@
+CREATE TABLE reviews ( 
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+user_ID VARCHAR(255) NOT NULL, 
+star_rating INT, 
+comments TEXT, suggestion VARCHAR(255), 
+datePublished DATE DEFAULT CURRENT_TIMESTAMP
+ );
+
+CREATE TABLE users(
+id INT(11) NOT NULL AUTO_INCREMENT PRMARY KEY,
+name VARCHAR(255),
+username VARCHAR(255),
+password VARCHAR(255)
+);
+
+INSERT INTO users ('name', 'username', 'password')
+VALUES ('John Cuneta', 'cuneta_jan', 'cuneta123'),
+('Sharon Reyes', 'reyesyes', 'reyes123');
+
+ALTER TABLE reviews
+ADD CONSTRAINT fk_cons
+FOREIGN KEY (user_ID) REFERENCES users(id);
+
